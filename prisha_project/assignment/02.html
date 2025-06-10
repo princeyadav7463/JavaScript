@@ -1,0 +1,252 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Content Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom Carousel CSS (Responsive and Full Screen) */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    /* Full-Height Carousel */
+    #carouselExampleIndicators {
+      height: 100vh;  /* Full viewport height */
+      max-width: 100%;
+      position: relative;
+    }
+
+    /* Carousel Images */
+    .carousel-item img {
+      object-fit: cover;
+      height: 100%;  /* Ensure the images take up full height of the container */
+      width: 100%;   /* Ensure the images take up full width */
+    }
+
+    /* Carousel Indicators */
+    .carousel-indicators button {
+      background-color: rgba(0, 0, 0, 0.5);  /* Dark background for dots */
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .carousel-indicators .active {
+      background-color: #ff6600;  /* Active dot color */
+    }
+
+    /* Carousel Control Buttons (Prev / Next) */
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.5); /* Darker background for arrows */
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      top: 50%; /* Position control buttons vertically centered */
+      transform: translateY(-50%); /* Adjust position to be center vertically */
+      z-index: 10;
+      width: 40px; /* Make the control buttons smaller */
+      height: 40px;
+    }
+
+    .carousel-control-prev:hover, .carousel-control-next:hover {
+      background-color: rgba(0, 0, 0, 0.7); /* Darken controls on hover */
+    }
+
+    /* For smaller screens (mobile/tablets) */
+    @media (max-width: 768px) {
+      /* Adjust carousel height for smaller screens */
+      #carouselExampleIndicators {
+        height: 50vh;
+      }
+
+      /* Adjust image size for small screens */
+      .carousel-item img {
+        height: 100%;
+      }
+
+      /* Smaller carousel controls */
+      .carousel-control-prev-icon, .carousel-control-next-icon {
+        padding: 8px;
+      }
+
+      /* Adjust indicator size on small screens */
+      .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    /* Optional: Add a fade transition effect */
+    .carousel-item {
+      transition: opacity 1s ease;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+    }
+
+    .carousel-item {
+      opacity: 0;
+    }
+
+
+    /* You Tube card section for css*/
+     .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      border-radius: 10px 10px 0 0;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive card layout */
+    @media (max-width: 768px) {
+      .card-columns {
+        display: block; 
+      }
+
+      .card {
+        margin-bottom: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <!-- Slide 1: Content like Images or Text -->
+      <div class="carousel-item active">
+        <img src="https://images.pexels.com/photos/1267324/pexels-photo-1267324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Toy everything</h5>
+          <p>Exclusive Men Collection</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Content like Images or Text -->
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/2611686/pexels-photo-2611686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="Slide 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Every Boys Love</h5>
+          <p>Best Boys Bike in Style</p>
+        </div>
+      </div>
+
+      <!-- Slide 3: Content like Images or Text -->
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/17462935/pexels-photo-17462935/free-photo-of-vintage-cars-on-a-parking-lot-at-a-car-meet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"d-block w-100" alt="Slide 3">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Boys Life</h5>
+          <p>Trendy Boys Collection</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls (Prev / Next) -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Content goes here (as already provided) -->
+  </div>
+
+  <!-- YouTube Video Cards Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Popular YouTube Videos</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Card 1 -->
+      <div class="col">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" class="card-img-top" alt="Video 1">
+          <div class="card-body">
+            <h5 class="card-title">Video Title 1</h5>
+            <p class="card-text">Short description or details about this video.</p>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" class="btn btn-primary" target="_blank">Watch Video</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" class="card-img-top" alt="Video 2">
+          <div class="card-body">
+            <h5 class="card-title">Video Title 2</h5>
+            <p class="card-text">Short description or details about this video.</p>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" class="btn btn-primary" target="_blank">Watch Video</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" class="card-img-top" alt="Video 3">
+          <div class="card-body">
+            <h5 class="card-title">Video Title 3</h5>
+            <p class="card-text">Short description or details about this video.</p>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" class="btn btn-primary" target="_blank">Watch Video</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with Copyright -->
+    <footer class="text-center py-4 mt-5">
+         <p>&copy; 2025 All rights reserved by <strong>Prisha</strong></p>
+    </footer>
+
+
+  <!-- Bootstrap JS (Ensure Bootstrap JS and Popper.js are included) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <!--Youtube card section-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html> 
